@@ -26,7 +26,15 @@ BuildRequires:  xfce4-dev-tools
 %setup
 
 %build
-./configure
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --sbindir=/usr/bin \
+    --libexecdir=/usr/lib \
+    --localstatedir=/var \
+    --disable-static \
+    --enable-gtk-doc \
+    --disable-debug
 %make_build
 
 %install
