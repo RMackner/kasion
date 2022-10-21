@@ -1,4 +1,4 @@
-%global xfceversion 4.16
+%global xfceversion 4.17
 
 Name:           exo
 Version:        4.17.2
