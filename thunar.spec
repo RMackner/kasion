@@ -9,7 +9,7 @@ Summary:        Thunar File Manager
 License:        GPLv2+
 URL:            http://thunar.xfce.org/
 #VCS git:git://git.xfce.org/xfce/thunar
-Source0:        http://archive.xfce.org/src/xfce/thunar/%{xfceversion}/thunar-%{version}.tar.bz2
+Source0:        https://archive.xfce.org/src/xfce/thunar/%{xfceversion}/thunar-%{version}.tar.bz2
 
 BuildRequires:  gcc-c++
 BuildRequires:  pkgconfig(dbus-glib-1) >= 0.34
