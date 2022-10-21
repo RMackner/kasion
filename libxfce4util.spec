@@ -9,7 +9,7 @@ Summary:        Utility library for the Xfce4 desktop environment
 
 License:        LGPLv2+
 URL:            http://www.xfce.org/
-Source0:        http://archive.xfce.org/src/xfce/%{name}/%{xfceversion}/%{name}-%{version}.tar.bz2
+Source0:        https://archive.xfce.org/src/xfce/%{name}/%{xfceversion}/%{name}-%{version}.tar.bz2
 #VCS: git:git://git.xfce.org/xfce/libxfce4util
 
 BuildRequires:  gcc-c++
