@@ -104,11 +104,6 @@ desktop-file-install --delete-original          \
         --dir %{buildroot}/%{_datadir}/applications         \
         %{buildroot}/%{_datadir}/applications/thunar.desktop
 
-# install additional sendto helpers
-for source in %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} ; do
-    desktop-file-install --vendor "" \
-            --dir %{buildroot}%{_datadir}/Thunar/sendto \
-            $source
 done
 
 # appdata
