@@ -15,11 +15,11 @@ BuildRequires:  gcc-c++
 BuildRequires:  gtk-doc
 BuildRequires:  gettext
 BuildRequires:  perl-URI
-BuildRequires:  pkgconfig(glib-2.0) >= 2.24.0
+BuildRequires:  glib2-devel
 BuildRequires:  libxfce4util-devel
 BuildRequires:  libxfce4ui-devel
 BuildRequires:  libnotify-devel
-BuildRequires:  intltool >= 0.31
+BuildRequires:  intltool
 BuildRequires:  chrpath
 BuildRequires:  desktop-file-utils
 BuildRequires:  gobject-introspection-devel
