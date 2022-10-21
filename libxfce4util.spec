@@ -20,7 +20,18 @@ BuildRequires:  gdk-pixbuf2-devel
 BuildRequires:  xfce4-dev-tools
 
 %description
-%{summary}
+This package includes basic utility non-GUI functions for Xfce4.
+
+%package devel
+Summary: Developpment tools for libxfce4util library
+Requires: %{name} = %{version}-%{release}
+Requires: glib2-devel
+Requires: gtk2-devel
+Requires: pkgconfig
+
+%description devel
+This package includes static libraries and header files for the
+libxfce4util library.
 
 %prep
 %setup
@@ -155,6 +166,12 @@ BuildRequires:  xfce4-dev-tools
    /usr/local/share/locale/zh_CN/LC_MESSAGES/libxfce4util.mo
    /usr/local/share/locale/zh_HK/LC_MESSAGES/libxfce4util.mo
    /usr/local/share/locale/zh_TW/LC_MESSAGES/libxfce4util.mo
+
+%files devel
+%{_libdir}/lib*.so
+%{_libdir}/pkgconfig/*.pc
+%{_includedir}/xfce4
+%doc %{_datadir}/gtk-doc/
 
 %changelog
 %autochangelog
