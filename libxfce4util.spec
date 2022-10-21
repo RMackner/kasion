@@ -18,6 +18,7 @@ BuildRequires:  gcc
 BuildRequires:  glib-devel
 BuildRequires:  gdk-pixbuf2-devel
 BuildRequires:  xfce4-dev-tools
+BuildRequires:  libtool
 
 %description
 This package includes basic utility non-GUI functions for Xfce4.
