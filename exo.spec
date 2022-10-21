@@ -7,7 +7,6 @@ URL:            https://archive.xfce.org/src/xfce
 Source0:        %{url}/%{name}/4.17/%{name}-%{version}.tar.bz2
 Conflicts:      exo
 
-Requires: gtk3
 
 BuildRequires:  make
 BuildRequires:  gtk3-devel
