@@ -30,9 +30,6 @@ BuildRequires:  xfce4-dev-tools
 %install
 %make_install
 
-# fix permissions for installed libraries
-chmod 755 $RPM_BUILD_ROOT/%{_libdir}/*.so
-
 %files
 
 %changelog
