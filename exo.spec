@@ -5,7 +5,7 @@ Summary:        exo
 License:        GPL-2.0
 URL:            https://archive.xfce.org/src/xfce
 Source0:        %{url}/%{name}/4.17/%{name}-%{version}.tar.bz2
-Conflicts:      thunar
+Conflicts:      exo
 
 Requires: gtk3
 
