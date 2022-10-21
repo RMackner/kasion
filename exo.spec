@@ -70,7 +70,7 @@ Development tools and static libraries and header files for the exo library.
    /usr/include/exo-2/exo/exo-utils.h
    /usr/include/exo-2/exo/exo.h
    /usr/lib/debug/usr/bin/exo-desktop-item-edit-4.17.2-1.fc3*
-   /usr/lib/debug/usr/bin/exo-open-4.17.2-1.fc37.x86_64.debug
+   /usr/lib/debug/usr/bin/exo-open-4.17.2-1.fc3*
    /usr/lib/debug/usr/lib64/libexo-2.so.0.1.0-4.17.2-1.fc3*
    /usr/lib64/libexo-2.so
    /usr/lib64/libexo-2.so.0
