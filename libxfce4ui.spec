@@ -19,7 +19,7 @@ BuildRequires:  pkgconfig(gobject-2.0) >= 2.24.0
 BuildRequires:  pkgconfig(gtk+-2.0) >= 2.20.0
 BuildRequires:  libSM-devel
 BuildRequires:  libxfce4util-devel
-BuildRequires:  pkgconfig(libxfconf-0) >= %{xfceversion}
+BuildRequires:  xfconf-devel
 BuildRequires:  pkgconfig(libstartup-notification-1.0) >= 0.4
 BuildRequires:  gtk-doc
 BuildRequires:  desktop-file-utils
