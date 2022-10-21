@@ -1,6 +1,6 @@
 %global __brp_check_rpaths %{nil}
 
-Name:           libxfce4util
+Name:           xfce4-dev-tools
 Version:        4.17.0
 Release:        %autorelease
 Summary:        xfce4-dev-tools
