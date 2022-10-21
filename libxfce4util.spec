@@ -37,15 +37,7 @@ libxfce4util library.
 %setup
 
 %build
-./configure \
-    --prefix=/usr \
-    --sysconfdir=/etc \
-    --sbindir=/usr/bin \
-    --libexecdir=/usr/lib \
-    --localstatedir=/var \
-    --disable-static \
-    --enable-gtk-doc \
-    --disable-debug
+./autogen.sh
 %make_build
 
 %install
