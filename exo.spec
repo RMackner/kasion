@@ -38,7 +38,7 @@ Development tools and static libraries and header files for the exo library.
 %setup -q
 
 %build
-%configure --enable-gtk-doc --disable-static
+%configure
 %make_build
 
 %install
