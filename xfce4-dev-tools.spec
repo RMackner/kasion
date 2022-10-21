@@ -16,14 +16,6 @@ BuildRequires:  libtool
 BuildRequires:  intltool
 BuildRequires:  make
 BuildRequires:  glib2-devel
-Requires:       autoconf
-Requires:       automake
-Requires:       gawk
-Requires:       git
-Requires:       glib2-devel
-Requires:       grep
-Requires:       gtk-doc
-Requires:       intltool
 
 %description
 This package contains common tools required by Xfce developers and people
