@@ -120,37 +120,121 @@ done
 
 %ldconfig_scriptlets
 
-%files -f thunar.lang
-%license COPYING
-%doc ChangeLog NEWS INSTALL AUTHORS HACKING THANKS
-%doc docs/README.gtkrc
-# exclude docs that we have moved to the above
-%exclude %{_datadir}/doc/thunar/README.gtkrc
-%{_bindir}/Thunar
-%{_bindir}/thunar
-%{_bindir}/thunar-settings
-%{_libdir}/libthunar*.so.*
-%dir %{_libdir}/thunarx-*/
-%{_libdir}/thunarx-*/thunar*.so
-%dir %{_libdir}/Thunar/
-%{_libdir}/Thunar/thunar-sendto-email
-%dir %{_datadir}/Thunar/
-%dir %{_datadir}/Thunar/sendto/
-%{_datadir}/Thunar/sendto/*.desktop
-%{_datadir}/polkit-1/actions/org.xfce.thunar.policy
-%{_datadir}/applications/*.desktop
-%{_datadir}/dbus-1/services/org.xfce.Thunar.FileManager1.service
-%{_datadir}/dbus-1/services/org.xfce.FileManager.service
-%{_datadir}/dbus-1/services/org.xfce.Thunar.service
-%{_datadir}/icons/hicolor/*/*/*
-%{_datadir}/xfce4/panel/plugins/thunar-tpa.desktop
-%{_metainfodir}/org.xfce.thunar.appdata.xml
-%{_libdir}/xfce4/panel/plugins/libthunar-tpa.so
-%{_libdir}/girepository-1.0/*.0.typelib
-%{_mandir}/man1/Thunar.1*
-%dir %{_sysconfdir}/xdg/Thunar
-%config(noreplace) %{_sysconfdir}/xdg/Thunar/uca.xml
-%{_userunitdir}/thunar.service
+%files
+   /usr/share/gtk-doc/html/thunar/ThunarAbstractDialog.html
+   /usr/share/gtk-doc/html/thunar/ThunarAbstractIconView.html
+   /usr/share/gtk-doc/html/thunar/ThunarActionManager.html
+   /usr/share/gtk-doc/html/thunar/ThunarApplication.html
+   /usr/share/gtk-doc/html/thunar/ThunarBrowser.html
+   /usr/share/gtk-doc/html/thunar/ThunarChooserButton.html
+   /usr/share/gtk-doc/html/thunar/ThunarChooserDialog.html
+   /usr/share/gtk-doc/html/thunar/ThunarChooserModel.html
+   /usr/share/gtk-doc/html/thunar/ThunarClipboardManager.html
+   /usr/share/gtk-doc/html/thunar/ThunarColumnEditor.html
+   /usr/share/gtk-doc/html/thunar/ThunarColumnModel.html
+   /usr/share/gtk-doc/html/thunar/ThunarCompactView.html
+   /usr/share/gtk-doc/html/thunar/ThunarComponent.html
+   /usr/share/gtk-doc/html/thunar/ThunarDBusService.html
+   /usr/share/gtk-doc/html/thunar/ThunarDeepCountJob.html
+   /usr/share/gtk-doc/html/thunar/ThunarDetailsView.html
+   /usr/share/gtk-doc/html/thunar/ThunarDevice.html
+   /usr/share/gtk-doc/html/thunar/ThunarDeviceMonitor.html
+   /usr/share/gtk-doc/html/thunar/ThunarEmblemChooser.html
+   /usr/share/gtk-doc/html/thunar/ThunarFile.html
+   /usr/share/gtk-doc/html/thunar/ThunarFileMonitor.html
+   /usr/share/gtk-doc/html/thunar/ThunarFolder.html
+   /usr/share/gtk-doc/html/thunar/ThunarHistory.html
+   /usr/share/gtk-doc/html/thunar/ThunarIconFactory.html
+   /usr/share/gtk-doc/html/thunar/ThunarIconRenderer.html
+   /usr/share/gtk-doc/html/thunar/ThunarIconView.html
+   /usr/share/gtk-doc/html/thunar/ThunarImage.html
+   /usr/share/gtk-doc/html/thunar/ThunarJob.html
+   /usr/share/gtk-doc/html/thunar/ThunarJobOperation.html
+   /usr/share/gtk-doc/html/thunar/ThunarJobOperationHistory.html
+   /usr/share/gtk-doc/html/thunar/ThunarListModel.html
+   /usr/share/gtk-doc/html/thunar/ThunarLocationBar.html
+   /usr/share/gtk-doc/html/thunar/ThunarLocationButton.html
+   /usr/share/gtk-doc/html/thunar/ThunarLocationButtons.html
+   /usr/share/gtk-doc/html/thunar/ThunarLocationEntry.html
+   /usr/share/gtk-doc/html/thunar/ThunarMenu.html
+   /usr/share/gtk-doc/html/thunar/ThunarNavigator.html
+   /usr/share/gtk-doc/html/thunar/ThunarPathEntry.html
+   /usr/share/gtk-doc/html/thunar/ThunarPermissionsChooser.html
+   /usr/share/gtk-doc/html/thunar/ThunarPreferences.html
+   /usr/share/gtk-doc/html/thunar/ThunarPreferencesDialog.html
+   /usr/share/gtk-doc/html/thunar/ThunarProgressDialog.html
+   /usr/share/gtk-doc/html/thunar/ThunarProgressView.html
+   /usr/share/gtk-doc/html/thunar/ThunarPropertiesDialog.html
+   /usr/share/gtk-doc/html/thunar/ThunarRenamerDialog.html
+   /usr/share/gtk-doc/html/thunar/ThunarRenamerModel.html
+   /usr/share/gtk-doc/html/thunar/ThunarRenamerProgress.html
+   /usr/share/gtk-doc/html/thunar/ThunarSendtoModel.html
+   /usr/share/gtk-doc/html/thunar/ThunarSessionClient.html
+   /usr/share/gtk-doc/html/thunar/ThunarShortcutsIconRenderer.html
+   /usr/share/gtk-doc/html/thunar/ThunarShortcutsModel.html
+   /usr/share/gtk-doc/html/thunar/ThunarShortcutsPane.html
+   /usr/share/gtk-doc/html/thunar/ThunarShortcutsView.html
+   /usr/share/gtk-doc/html/thunar/ThunarSidePane.html
+   /usr/share/gtk-doc/html/thunar/ThunarSimpleJob.html
+   /usr/share/gtk-doc/html/thunar/ThunarSizeLabel.html
+   /usr/share/gtk-doc/html/thunar/ThunarStandardView.html
+   /usr/share/gtk-doc/html/thunar/ThunarStatusbar.html
+   /usr/share/gtk-doc/html/thunar/ThunarTransferJob.html
+   /usr/share/gtk-doc/html/thunar/ThunarTreeModel.html
+   /usr/share/gtk-doc/html/thunar/ThunarTreePane.html
+   /usr/share/gtk-doc/html/thunar/ThunarTreeView.html
+   /usr/share/gtk-doc/html/thunar/ThunarUserManager.html
+   /usr/share/gtk-doc/html/thunar/ThunarView.html
+   /usr/share/gtk-doc/html/thunar/ThunarWindow.html
+   /usr/share/gtk-doc/html/thunar/annotation-glossary.html
+   /usr/share/gtk-doc/html/thunar/ch01.html
+   /usr/share/gtk-doc/html/thunar/ch02.html
+   /usr/share/gtk-doc/html/thunar/ch03.html
+   /usr/share/gtk-doc/html/thunar/ch04.html
+   /usr/share/gtk-doc/html/thunar/ch05.html
+   /usr/share/gtk-doc/html/thunar/ch06.html
+   /usr/share/gtk-doc/html/thunar/ch07.html
+   /usr/share/gtk-doc/html/thunar/ch08.html
+   /usr/share/gtk-doc/html/thunar/ch09.html
+   /usr/share/gtk-doc/html/thunar/ch10.html
+   /usr/share/gtk-doc/html/thunar/ch11.html
+   /usr/share/gtk-doc/html/thunar/ch12.html
+   /usr/share/gtk-doc/html/thunar/ch13.html
+   /usr/share/gtk-doc/html/thunar/ch14.html
+   /usr/share/gtk-doc/html/thunar/ch15.html
+   /usr/share/gtk-doc/html/thunar/ch16.html
+   /usr/share/gtk-doc/html/thunar/ch17.html
+   /usr/share/gtk-doc/html/thunar/ch18.html
+   /usr/share/gtk-doc/html/thunar/ch19.html
+   /usr/share/gtk-doc/html/thunar/glib-gtk-extensions.html
+   /usr/share/gtk-doc/html/thunar/home.png
+   /usr/share/gtk-doc/html/thunar/index.html
+   /usr/share/gtk-doc/html/thunar/left-insensitive.png
+   /usr/share/gtk-doc/html/thunar/left.png
+   /usr/share/gtk-doc/html/thunar/right-insensitive.png
+   /usr/share/gtk-doc/html/thunar/right.png
+   /usr/share/gtk-doc/html/thunar/style.css
+   /usr/share/gtk-doc/html/thunar/thunar-objects.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-dialogs.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-dnd.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-enum-types.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-gdk-extensions.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-gio-extensions.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-gobject-extensions.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-gtk-extensions.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-ice.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-io-jobs-util.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-io-jobs.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-io-scan-directory.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-notify.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-pango-extensions.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-renamer-pair.html
+   /usr/share/gtk-doc/html/thunar/thunar-thunar-util.html
+   /usr/share/gtk-doc/html/thunar/thunar-view.html
+   /usr/share/gtk-doc/html/thunar/thunar-widgets.html
+   /usr/share/gtk-doc/html/thunar/thunar.devhelp2
+   /usr/share/gtk-doc/html/thunar/up-insensitive.png
+   /usr/share/gtk-doc/html/thunar/up.png
 
 %files devel
 %doc examples
