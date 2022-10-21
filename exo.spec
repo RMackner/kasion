@@ -30,9 +30,6 @@ Extension library for Xfce, targeted at application development.
 
 %package        devel
 Summary:        Development tools for exo library
-Requires:       %{name} = %{version}-%{release}
-Requires:       libxfce4util-devel
-Requires:       pkgconfig
 
 %description devel
 Development tools and static libraries and header files for the exo library.
