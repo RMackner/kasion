@@ -16,6 +16,7 @@ BuildRequires:  gcc
 BuildRequires:  glib-devel
 BuildRequires:  gdk-pixbuf2-devel
 BuildRequires:  xfce4-dev-tools
+BuildRequires:  libxfce4util-devel
 
 %description
 %{summary}
