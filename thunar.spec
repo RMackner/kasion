@@ -17,6 +17,7 @@ BuildRequires:  exo-devel
 BuildRequires:  glib-devel
 BuildRequires:  gdk-pixbuf2-devel
 BuildRequires:  xfce4-dev-tools
+BuildRequires:  libxfce4ui-devel
 
 %description
 %{summary}
