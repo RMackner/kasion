@@ -46,11 +46,6 @@ environment, it's contributors, and it's licensing.
 
 %package        devel
 Summary:        Development files for %{name}
-Requires:       %{name} = %{version}-%{release}
-Requires:       gtk2-devel
-Requires:       libxfce4util-devel
-Requires:       glade-devel
-Requires:       pkgconfig
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
