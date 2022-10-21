@@ -6,7 +6,7 @@ Release:        %autorelease
 Summary:        libxfce4util
 License:        GPL-2.0
 URL:            https://archive.xfce.org/src/xfce
-Source0:        %{url}/%{name}/4.17/%{name}-%{version}.tar.bz2
+Source0:        https://github.com/RMackner/kasion/releases/download/4.17.2/4.17.2.tar.gz
 Conflicts:      libxfce4util
 
 Requires: gtk3
