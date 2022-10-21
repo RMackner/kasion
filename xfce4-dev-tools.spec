@@ -32,7 +32,19 @@ This package includes basic utility non-GUI functions for Xfce4.
 %make_install
 
 %files
-
+   /usr/lib/debug/usr/local/bin/xdt-csource-4.17.0-1.fc3*
+   /usr/local/bin/xdt-autogen
+   /usr/local/bin/xdt-csource
+   /usr/local/bin/xfce-build
+   /usr/local/bin/xfce-do-release
+   /usr/local/bin/xfce-get-release-notes
+   /usr/local/bin/xfce-get-translations
+   /usr/local/bin/xfce-update-news
+   /usr/local/share/aclocal/xdt-depends.m4
+   /usr/local/share/aclocal/xdt-features.m4
+   /usr/local/share/aclocal/xdt-i18n.m4
+   /usr/local/share/aclocal/xdt-version.m4
+   /usr/local/share/man/man1/xdt-csource.1
 
 %changelog
 %autochangelog
