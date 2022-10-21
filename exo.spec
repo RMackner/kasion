@@ -11,14 +11,6 @@ License:        LGPLv2+ and GPLv2+
 URL:            http://xfce.org/
 Source0:        https://archive.xfce.org/src/xfce/%{name}/%{xfceversion}/%{name}-%{version}.tar.bz2
 
-# internet-mail icon taken from GNOME, license is LGPLv3
-Source1:        internet-mail-24.png
-Source2:        internet-mail-48.png
-
-# replace mailto handler with python version
-# https://bugzilla.xfce.org/show_bug.cgi?id=9964
-Source3:        mailtoparse.py
-
 BuildRequires:  gcc-c++
 BuildRequires:  gtk-doc
 BuildRequires:  gettext
@@ -58,13 +50,6 @@ Development tools and static libraries and header files for the exo library.
 find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 %find_lang exo-2
-
-install -Dpm 0644 %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/24x24/apps/internet-mail.png
-install -Dpm 0644 %{SOURCE2} %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/internet-mail.png
-
-# replace upstream perl script with python one. 
-rm -f %{buildroot}%{_libdir}/xfce4/exo-1/exo-compose-mail-1
-install -Dpm 0755 %{SOURCE3} %{buildroot}%{_libdir}/xfce4/exo-1/exo-compose-mail-1
 
 %files -f exo-2.lang
 %license COPYING
