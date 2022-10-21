@@ -104,7 +104,6 @@ desktop-file-install --delete-original          \
         --dir %{buildroot}/%{_datadir}/applications         \
         %{buildroot}/%{_datadir}/applications/thunar.desktop
 
-done
 
 # appdata
 appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.appdata.xml
