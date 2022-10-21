@@ -1,3 +1,5 @@
+%global __brp_check_rpaths %{nil}
+
 Name:           libxfce4util
 Version:        4.17.2
 Release:        %autorelease
