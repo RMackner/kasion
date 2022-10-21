@@ -25,10 +25,10 @@ BuildRequires:  xfce4-dev-tools
 
 %build
 ./configure
-make
+%make_build
 
 %install
-make install
+%make_install
 
 %files
 
