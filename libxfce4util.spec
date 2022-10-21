@@ -25,10 +25,6 @@ This package includes basic utility non-GUI functions for Xfce4.
 
 %package devel
 Summary: Developpment tools for libxfce4util library
-Requires: %{name} = %{version}-%{release}
-Requires: glib2-devel
-Requires: gtk2-devel
-Requires: pkgconfig
 
 %description devel
 This package includes static libraries and header files for the
