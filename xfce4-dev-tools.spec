@@ -8,7 +8,7 @@ Summary:        Xfce developer tools
 License:        GPLv2+
 URL:            http://xfce.org/~benny/projects/xfce4-dev-tools/
 #VCS git:git://git.xfce.org/xfce/xfce4-dev-tools
-Source0:        http://archive.xfce.org/src/xfce/xfce4-dev-tools/%{xfceversion}/%{name}-%{version}.tar.bz2
+Source0:        https://archive.xfce.org/src/xfce/xfce4-dev-tools/%{xfceversion}/%{name}-%{version}.tar.bz2
 
 BuildRequires:  gettext-devel
 BuildRequires:  gtk-doc
