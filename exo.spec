@@ -47,27 +47,7 @@ Development tools and static libraries and header files for the exo library.
 %install
 %make_install
 
-find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
-
-%find_lang exo-2
-
-%files -f exo-2.lang
-%license COPYING
-%doc AUTHORS ChangeLog NEWS THANKS
-%{_bindir}/exo-desktop-item-edit
-%{_bindir}/exo-open
-%{_libdir}/libexo-2.so.0
-%{_libdir}/libexo-2.so.0.1.0
-%{_libdir}/xfce4/
-%{_datadir}/icons/hicolor/*/*/*
-%{_datadir}/pixmaps/exo
-%{_mandir}/man1/exo-open.1.*
-
-%files devel
-%doc %{_datadir}/gtk-doc
-%{_includedir}/exo*
-%{_libdir}/lib*.so
-%{_libdir}/pkgconfig/*.pc
+%files
 
 
 %changelog
