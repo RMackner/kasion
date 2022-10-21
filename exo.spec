@@ -15,7 +15,7 @@ BuildRequires:  gcc
 BuildRequires:  glib-devel
 BuildRequires:  gdk-pixbuf2-devel
 BuildRequires:  xfce4-dev-tools
-BuildRequires:  pkgconfig(libxfce4util-1.0) >= 4.71.2
+BuildRequires:  pkgconfig(libxfce4util-1.0) >= 4.17.2
 
 %description
 %{summary}
