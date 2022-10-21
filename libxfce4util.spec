@@ -33,8 +33,8 @@ BuildRequires:  xfce4-dev-tools
 %make_install
 
 %files
-   /usr/lib/debug/usr/local/lib/libxfce4util.so.7.0.0-4.17.2-1.fc37.x86_64.debug
-   /usr/lib/debug/usr/local/sbin/xfce4-kiosk-query-4.17.2-1.fc37.x86_64.debug
+   /usr/lib/debug/usr/local/lib/libxfce4util.so.7.0.0-4.17.2-1.fc3*
+   /usr/lib/debug/usr/local/sbin/xfce4-kiosk-query-4.17.2-1.fc3*
    /usr/local/include/xfce4/libxfce4util/libxfce4util-config.h
    /usr/local/include/xfce4/libxfce4util/libxfce4util.h
    /usr/local/include/xfce4/libxfce4util/xfce-debug.h
