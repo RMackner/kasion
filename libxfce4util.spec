@@ -1,24 +1,24 @@
-%global __brp_check_rpaths %{nil}
+%global xfceversion 4.17
+
+%global namespc Libxfce4util
 
 Name:           libxfce4util
 Version:        4.17.2
-Release:        %autorelease
-Summary:        libxfce4util
-License:        GPL-2.0
-URL:            https://archive.xfce.org/src/xfce
-Source0:        https://github.com/RMackner/kasion/releases/download/4.17.2/4.17.2.tar.gz
-Conflicts:      libxfce4util
+Release:        1%{?dist}
+Summary:        Utility library for the Xfce4 desktop environment
 
-Requires: gtk3
+License:        LGPLv2+
+URL:            http://www.xfce.org/
+Source0:        http://archive.xfce.org/src/xfce/%{name}/%{xfceversion}/%{name}-%{version}.tar.bz2
+#VCS: git:git://git.xfce.org/xfce/libxfce4util
 
-BuildRequires:  make
-BuildRequires:  gtk3-devel
-BuildRequires:  git
-BuildRequires:  gcc
-BuildRequires:  glib-devel
-BuildRequires:  gdk-pixbuf2-devel
-BuildRequires:  xfce4-dev-tools
-BuildRequires:  libtool
+BuildRequires:  gcc-c++
+BuildRequires:  pkgconfig(glib-2.0) >= 2.24.0
+BuildRequires:  gettext
+BuildRequires:  intltool
+BuildRequires:  gtk-doc
+BuildRequires:  gobject-introspection-devel
+BuildRequires:  vala
 
 %description
 This package includes basic utility non-GUI functions for Xfce4.
@@ -35,101 +35,320 @@ This package includes static libraries and header files for the
 libxfce4util library.
 
 %prep
-%setup
+%setup -q
 
 %build
-./autogen.sh
+%configure --disable-static
+# Remove rpaths
+sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
+sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
+export LD_LIBRARY_PATH="`pwd`/libxfce4util/.libs"
+
 %make_build
 
 %install
 %make_install
 
-%files
-   /usr/lib/debug/usr/local/lib/libxfce4util.so.7.0.0-4.17.2-1.fc3*
-   /usr/lib/debug/usr/local/sbin/xfce4-kiosk-query-4.17.2-1.fc3*
-   /usr/local/include/xfce4/libxfce4util/libxfce4util-config.h
-   /usr/local/include/xfce4/libxfce4util/libxfce4util.h
-   /usr/local/include/xfce4/libxfce4util/xfce-debug.h
-   /usr/local/include/xfce4/libxfce4util/xfce-fileutils.h
-   /usr/local/include/xfce4/libxfce4util/xfce-generics.h
-   /usr/local/include/xfce4/libxfce4util/xfce-gio-extensions.h
-   /usr/local/include/xfce4/libxfce4util/xfce-i18n.h
-   /usr/local/include/xfce4/libxfce4util/xfce-kiosk.h
-   /usr/local/include/xfce4/libxfce4util/xfce-license.h
-   /usr/local/include/xfce4/libxfce4util/xfce-miscutils.h
-   /usr/local/include/xfce4/libxfce4util/xfce-posix-signal-handler.h
-   /usr/local/include/xfce4/libxfce4util/xfce-rc.h
-   /usr/local/include/xfce4/libxfce4util/xfce-resource.h
-   /usr/local/include/xfce4/libxfce4util/xfce-string.h
-   /usr/local/include/xfce4/libxfce4util/xfce-utf8.h
-   /usr/local/lib/libxfce4util.so
-   /usr/local/lib/libxfce4util.so.7
-   /usr/local/lib/libxfce4util.so.7.0.0
-   /usr/local/lib/pkgconfig/libxfce4util-1.0.pc
-   /usr/local/sbin/xfce4-kiosk-query
-   /usr/local/share/locale/am/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ar/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ast/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/be/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/bg/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/bn/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ca/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/cs/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/cy/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/da/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/de/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/el/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/en_AU/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/en_GB/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/es/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/et/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/eu/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/fi/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/fr/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/gl/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/he/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/hi/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/hr/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/hu/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/hy/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/hy_AM/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/hye/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/id/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ie/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/is/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/it/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ja/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/kk/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ko/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/lt/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/lv/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ms/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/nb/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/nl/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/nn/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/oc/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/pa/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/pl/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/pt/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/pt_BR/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ro/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ru/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/si/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/sk/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/sl/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/sq/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/sr/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/sv/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/th/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/tr/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ug/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/uk/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ur/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/ur_PK/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/uz/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/zh_CN/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/zh_HK/LC_MESSAGES/libxfce4util.mo
-   /usr/local/share/locale/zh_TW/LC_MESSAGES/libxfce4util.mo
+# kevin identified the issue - fixes wrong library permissions
+chmod 755 $RPM_BUILD_ROOT/%{_libdir}/*.so
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
+
+%find_lang %{name}
+
+%ldconfig_scriptlets
+
+%files -f %{name}.lang
+%license COPYING
+%doc AUTHORS ChangeLog NEWS README.Kiosk THANKS
+%{_libdir}/lib*.so.*
+%{_sbindir}/xfce4-kiosk-query
+%{_libdir}/girepository-1.0/%{namespc}-1.0.typelib
+%{_datadir}/gir-1.0/%{namespc}-1.0.gir
+%{_datadir}/vala/vapi/%{name}-1.0.vapi
+
+%files devel
+%{_libdir}/lib*.so
+%{_libdir}/pkgconfig/*.pc
+%{_includedir}/xfce4
+%doc %{_datadir}/gtk-doc/
 
 %changelog
-%autochangelog
+* Wed Dec 23 2020 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.16.0-1
+- Update to 4.16.0
+
+* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 4.14.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 4.14.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Mon Aug 12 2019 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.14.0-1
+- Update to 4.14.0
+
+* Mon Jul 29 2019 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.13.5-1
+- Update to 4.13.5
+- Enable vala
+
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 4.13.4-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Mon Jul 01 2019 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.13.4-3
+- add export ld-path
+
+* Mon Jul 01 2019 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.13.4-2
+- Enable gobject instrospection
+
+* Mon Jul 01 2019 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.13.4-1
+- Update to 4.13.4
+
+* Thu May 16 2019 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.13.3-1
+- Update to 4.13.3
+
+* Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 4.13.2-21
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Sat Aug 11 2018 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.13.2-20
+- Update to 4.13.2
+
+* Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 4.12.1-10
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
+* Mon May 28 2018 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.12.1-9
+- Add BR:gcc-c++
+
+* Sun May 27 2018 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.12.1-8
+- Drop gtk-doc building (fixes bug# 1582901)
+- Modernize spec
+
+* Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 4.12.1-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
+* Thu Aug 03 2017 Fedora Release Engineering <releng@fedoraproject.org> - 4.12.1-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
+
+* Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 4.12.1-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 4.12.1-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
+* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 4.12.1-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
+* Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.12.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
+* Sat Feb 28 2015 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.12.1-1
+- Update to 4.12.1
+- Fixes permissions problems in installing libraries
+- Fixes xfce_version_string 
+
+* Sat Feb 28 2015 Mukundan Ragavan <nonamedotc@fedoraproject.org> - 4.12.0-1
+- Update to stable release 4.12.0
+
+* Sun Aug 17 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.10.1-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.10.1-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
+* Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.10.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
+* Sun May 05 2013 Kevin Fenzi <kevin@scrye.com> 4.10.1-1
+- Update to 4.10.1
+
+* Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.10.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
+
+* Thu Jul 19 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.10.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
+
+* Sat Apr 28 2012 Christoph Wickert <cwickert@fedoraproject.org> - 4.10.0-1
+- Update to 4.10.0 final
+- Make build verbose
+- Add VCS key
+
+* Sat Apr 14 2012 Kevin Fenzi <kevin@scrye.com> - 4.9.1-1
+- Update to 4.9.1 (Xfce 4.10pre2)
+
+* Sun Apr 01 2012 Kevin Fenzi <kevin@scrye.com> - 4.9.0-1
+- Update to 4.9.0
+
+* Fri Jan 13 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.8.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
+* Mon Sep 12 2011 Christoph Wickert <cwickert@fedoraproject.org> - 4.8.2-1
+- Update to 4.8.2
+
+* Tue Feb 08 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.8.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
+
+* Sun Jan 16 2011 Kevin Fenzi <kevin@tummy.com> - 4.8.1-1
+- Update to 4.8.1
+
+* Sun Jan 16 2011 Kevin Fenzi <kevin@tummy.com> - 4.8.0-1
+- Update to 4.8.0 final 
+
+* Sun Jan 02 2011 Christoph Wickert <cwickert@fedoraproject.org> - 4.7.5-1
+- Update to 4.7.5
+
+* Fri Dec 03 2010 Christoph Wickert <cwickert@fedoraproject.org> - 4.7.4-1
+- Update to 4.7.4
+
+* Sun Nov 07 2010 Christoph Wickert <cwickert@fedoraproject.org> - 4.7.3-1
+- Update to 4.7.3
+
+* Sun Sep 05 2010 Christoph Wickert <cwickert@fedoraproject.org> - 4.7.2-1
+- Update to 4.7.2
+
+* Mon Aug 23 2010 Kevin Fenzi <kevin@tummy.com> - 4.6.2-2
+- Remove unneeded gtk-doc dep. Fixes bug #604400
+
+* Fri May 21 2010 Kevin Fenzi <kevin@tummy.com> - 4.6.2-1
+- Update to 4.6.2
+
+* Sat Jul 25 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.6.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
+
+* Sun Apr 19 2009 Kevin Fenzi <kevin@tummy.com> - 4.6.1-1
+- Update to 4.6.1
+
+* Mon Mar 02 2009 Christoph Wickert <cwickert@fedoraproject.org> - 4.6.0-2
+- Make devel package require pkgconfig and gtk-doc
+- Mark gtk-doc files as %%doc
+
+* Thu Feb 26 2009 Kevin Fenzi <kevin@tummy.com> - 4.6.0-1
+- Update to 4.6.0
+
+* Wed Feb 25 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.5.99.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
+
+* Mon Jan 26 2009 Kevin Fenzi <kevin@tummy.com> - 4.5.99.1-1
+- Update to 4.5.99.1
+
+* Tue Jan 13 2009 Kevin Fenzi <kevin@tummy.com> - 4.5.93-1
+- Update to 4.5.93
+
+* Sun Dec 21 2008 Kevin Fenzi <kevin@tummy.com> - 4.5.92-1
+- Update to 4.5.92
+
+* Mon Oct 27 2008 Christoph Wickert <cwickert@fedoraproject.org> - 4.4.3-1
+- Update to 4.4.3
+
+* Sun Feb 10 2008 Kevin Fenzi <kevin@tummy.com> - 4.4.2-2
+- Rebuild for gcc43
+
+* Sun Dec  2 2007 Kevin Fenzi <kevin@tummy.com> - 4.4.2-1
+- Update to 4.4.2
+
+* Sun Aug 26 2007 Kevin Fenzi <kevin@tummy.com> - 4.4.1-3
+- Update License tag
+
+* Mon Apr 16 2007 Christoph Wickert <fedora@christoph-wickert.de> - 4.4.1-2
+- BuildRequire gettext and include locales
+
+* Wed Apr 11 2007 Kevin Fenzi <kevin@tummy.com> - 4.4.1-1
+- Update to 4.4.1
+
+* Sun Jan 21 2007 Kevin Fenzi <kevin@tummy.com> - 4.4.0-1
+- Update to 4.4.0
+
+* Thu Nov  9 2006 Kevin Fenzi <kevin@tummy.com> - 4.3.99.2-1
+- Update to 4.3.99.2
+
+* Thu Oct  5 2006 Kevin Fenzi <kevin@tummy.com> - 4.3.99.1-3
+- Fix defattr
+
+* Wed Oct  4 2006 Kevin Fenzi <kevin@tummy.com> - 4.3.99.1-2
+- Bump release for devel checkin
+
+* Sun Sep  3 2006 Kevin Fenzi <kevin@tummy.com> - 4.3.99.1-1
+- Upgrade to 4.4rc1/4.3.99.1
+- Remove unneeded PreReq
+- Added doc files
+
+* Sun Aug 27 2006 Kevin Fenzi <kevin@tummy.com> - 4.3.90.2-2
+- Make devel package own includedir/xfce4 (fixes #203644)
+
+* Tue Jul 11 2006 Kevin Fenzi <kevin@tummy.com> - 4.3.90.2-1
+- Update to 4.3.90.2
+
+* Thu Apr 27 2006 Kevin Fenzi <kevin@tummy.com> - 4.3.90.1-1
+- upgrade to 4.3.90.1
+
+* Thu Feb 16 2006 Kevin Fenzi <kevin@tummy.com> - 4.2.3.2-2.fc5
+- Rebuild for fc5
+
+* Wed Nov 16 2005 Kevin Fenzi <kevin@tummy.com> - 4.2.3.2-1.fc5
+- Update to 4.2.3.2
+
+* Thu Nov 10 2005 Kevin Fenzi <kevin@tummy.com> - 4.2.3.1-4.fc5
+- bump release for rebuild
+
+* Thu Nov 10 2005 Kevin Fenzi <kevin@tummy.com> - 4.2.3.1-3.fc5
+- disable-static instead of removing .a files. 
+- sync release with FC-4 branch
+
+* Mon Nov  7 2005 Kevin Fenzi <kevin@tummy.com> - 4.2.3.1-1.fc5
+- Update to 4.2.3.1
+- Added dist tag
+- Removed .la files. Fixes bug 172645
+- Removed .a files. 
+
+* Tue May 17 2005 Kevin Fenzi <kevin@tummy.com> - 4.2.2-1.fc4
+- Update to 4.2.2
+
+* Fri Mar 25 2005 Kevin Fenzi <kevin@tummy.com> - 4.2.1-3.fc4
+- lowercase Release
+
+* Sat Mar 19 2005 Warren Togami <wtogami@redhat.com> - 4.2.1-2
+- remove stuff 
+
+* Tue Mar 15 2005 Kevin Fenzi <kevin@tummy.com> - 4.2.1-1
+- Updated to 4.2.1 version
+
+* Tue Mar  8 2005 Kevin Fenzi <kevin@tummy.com> - 4.2.0-3
+- Fixed License to be BSD and LGPL
+- Fixed case on Xfce
+
+* Sun Mar  6 2005 Kevin Fenzi <kevin@tummy.com> - 4.2.0-2
+- Inital Fedora Extras version
+- Capitalized first letter of Summary in devel section to quiet rpmlint
+- Added LGPL to License as 2 files are under LGPL, the rest BSD
+
+* Sun Jan 23 2005 Than Ngo <than@redhat.com> 4.2.0-1
+- update to 4.2.0 release
+
+* Wed Dec 08 2004 Than Ngo <than@redhat.com> 4.1.99.1-1
+- update to 4.2 rc1
+
+* Mon Jul 19 2004 Than Ngo <than@redhat.com> 4.0.6-1
+- update to 4.0.6
+- add requires on glib2-devel, bug #124200
+- remove unneeded patch file, which is included in new upstream
+
+* Tue Jun 15 2004 Elliot Lee <sopwith@redhat.com>
+- rebuilt
+
+* Thu Apr 15 2004 Than Ngo <than@redhat.com> 4.0.5-1
+- update to 4.0.5
+
+* Tue Mar 02 2004 Elliot Lee <sopwith@redhat.com>
+- rebuilt
+
+* Fri Feb 13 2004 Elliot Lee <sopwith@redhat.com>
+- rebuilt
+
+* Mon Jan 26 2004 Than Ngo <than@redhat.com> 4.0.3-2
+- fixed dependant libraries check on x86_64
+
+* Fri Jan 09 2004 Than Ngo <than@redhat.com> 4.0.3-1
+- 4.0.3
+
+* Thu Dec 25 2003 Than Ngo <than@redhat.com> 4.0.2-1
+- 4.0.2
+
+* Tue Dec 16 2003 Than Ngo <than@redhat.com> 4.0.1-1
+- initial build
