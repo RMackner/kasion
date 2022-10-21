@@ -17,7 +17,7 @@ BuildRequires:  git
 BuildRequires:  gcc
 BuildRequires:  glib-devel
 BuildRequires:  gdk-pixbuf2-devel
-BuildRequires:  xfce4-dev-tools
+BuildRequires:  xfce4-dev-tools-4.17.0
 BuildRequires:  libtool
 
 %description
