@@ -59,7 +59,6 @@ developing applications that use %{name}.
 
 %prep
 %setup -q
-%patch10
 
 %build
 %configure --disable-static
