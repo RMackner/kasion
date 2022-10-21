@@ -28,12 +28,6 @@ BuildRequires:  make
 %description
 Extension library for Xfce, targeted at application development.
 
-%package        devel
-Summary:        Development tools for exo library
-
-%description devel
-Development tools and static libraries and header files for the exo library.
-
 %prep
 %setup -q
 
@@ -174,12 +168,6 @@ Development tools and static libraries and header files for the exo library.
    /usr/share/locale/zh_TW/LC_MESSAGES/exo.mo
    /usr/share/man/man1/exo-open.1.gz
    /usr/share/pixmaps/exo/exo-thumbnail-frame.png
-   
-%files devel
-%doc %{_datadir}/gtk-doc
-%{_includedir}/exo*
-%{_libdir}/lib*.so
-%{_libdir}/pkgconfig/*.pc
 
 
 
