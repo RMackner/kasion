@@ -167,8 +167,6 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 	
 %files devel
 	
-%doc HACKING STATUS TODO
-	
 %{_includedir}/*
 	
 %{_libdir}/*.so
