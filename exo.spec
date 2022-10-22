@@ -101,11 +101,11 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 	
  
 	
-%find_lang exo-2
+%find_lang exo
 	
  
 	
-%files -f exo-2.lang
+%files -f exo.lang
 	
 %license COPYING
 	
