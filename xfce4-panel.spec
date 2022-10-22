@@ -40,14 +40,6 @@ Source0:        https://archive.xfce.org/src/xfce/%{name}/%{xfceversion}/%{name}
 	
  
 	
-# clock icon taken from system-config-date, license is GPLv2+
-	
-Source1:        xfce4-clock.png
-	
-Source2:        xfce4-clock.svg
-	
- 
-	
 BuildRequires:  make
 	
 BuildRequires:  gcc-c++
@@ -197,14 +189,6 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 desktop-file-validate %{buildroot}/%{_datadir}/applications/panel-desktop-handler.desktop
 	
 desktop-file-validate %{buildroot}/%{_datadir}/applications/panel-preferences.desktop
-	
- 
-	
-# install additional icons
-	
-install -pm 0644 %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/
-	
-install -pm 0644 %{SOURCE2} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/
 	
  
 	
