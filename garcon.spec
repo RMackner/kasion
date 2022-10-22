@@ -110,8 +110,6 @@ developing applications that use %{name}.
 	
 %setup -q
 	
-%patch0 -p1 -b.fedora-menus
-	
  
 	
  
