@@ -21,7 +21,7 @@ License:        LGPLv2+ and GPLv2+
 	
 URL:            http://xfce.org/
 	
-Source0:        http://archive.xfce.org/src/xfce/%{name}/%{xfceversion}/%{name}-%{version}.tar.bz2
+Source0:        https://archive.xfce.org/src/xfce/%{name}/%{xfceversion}/%{name}-%{version}.tar.bz2
 	
  
 	
