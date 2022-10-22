@@ -177,33 +177,6 @@ chmod 644 examples/xfce-file-manager.py
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 	
  
-	
-%find_lang thunar
-	
- 
-	
-desktop-file-install --delete-original          \
-	
-        --dir %{buildroot}/%{_datadir}/applications         \
-	
-        %{buildroot}/%{_datadir}/applications/thunar-settings.desktop
-	
- 
-	
-desktop-file-install --delete-original          \
-	
-        --dir %{buildroot}/%{_datadir}/applications          \
-	
-        %{buildroot}/%{_datadir}/applications/thunar-bulk-rename.desktop
-	
- 
-	
-desktop-file-install --delete-original          \
-	
-        --dir %{buildroot}/%{_datadir}/applications         \
-	
-        %{buildroot}/%{_datadir}/applications/thunar.desktop
-	
  
 	
 # appdata
