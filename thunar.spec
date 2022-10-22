@@ -130,15 +130,7 @@ Thunarx GTK documentation files for the Thunar file manager.
 	
 %autosetup -n thunar-%{version}
 	
- 
-	
-# fix icon in thunar-sendto-email.desktop
-	
-sed -i 's!internet-mail!mail-message-new!' \
-	
-        plugins/thunar-sendto-email/thunar-sendto-email.desktop.in.in
-	
- 
+
 	
 %build
 	
