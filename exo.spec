@@ -95,12 +95,18 @@ Development tools and static libraries and header files for the exo library.
 %make_install
 	
 	
-find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 	
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 	
  
 	
-%files
+ 
+	
+%find_lang exo
+	
+ 
+	
+%files -f exo.lang
 	
 %license COPYING
 	
@@ -113,9 +119,7 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %{_libdir}/libexo-2.so.0
 	
 %{_libdir}/libexo-2.so.0.1.0
-	
-%{_datadir}/icons/hicolor/*/*/*
-	
+		
 %{_datadir}/pixmaps/exo
 	
 %{_mandir}/man1/exo-open.1.*
