@@ -269,6 +269,8 @@ done
 %config(noreplace) %{_sysconfdir}/xdg/Thunar/uca.xml
 	
 %{_userunitdir}/thunar.service
+
+/usr/share/locale/*
 	
  
 	
@@ -291,6 +293,8 @@ done
 %dir %{_datadir}/gtk-doc/html/thunarx
 	
 %{_datadir}/gtk-doc/html/thunarx/*
+
+/usr/share/gtk-doc/html/thunar/*
 	
  
 	
