@@ -97,15 +97,10 @@ Development tools and static libraries and header files for the exo library.
 	
 find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 	
- 
 	
  
 	
-%find_lang exo
-	
- 
-	
-%files -f exo.lang
+%files
 	
 %license COPYING
 	
