@@ -32,7 +32,7 @@ URL:            http://xfce.org/
 	
 #VCS git:git://git.xfce.org/xfce/garcon
 	
-Source0:        http://archive.xfce.org/src/xfce/%{name}/%{minorversion}/%{name}-%{version}.tar.bz2
+Source0:        https://archive.xfce.org/src/xfce/%{name}/%{minorversion}/%{name}-%{version}.tar.bz2
 	
  
 	
