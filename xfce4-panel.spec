@@ -48,7 +48,7 @@ BuildRequires:  gtk3-devel
 	
 BuildRequires:  libxfce4ui-devel >= %{xfceversion}
 	
-BuildRequires:  xfconf-devel >= %{xfceversion}
+BuildRequires:  xfconf-devel
 	
 BuildRequires:  garcon-devel >= 0.6.0
 	
