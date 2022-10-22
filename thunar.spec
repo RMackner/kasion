@@ -208,7 +208,7 @@ done
 %ldconfig_scriptlets
 	
 	
-%files -f thunar
+%files
 	
 %license COPYING
 	
