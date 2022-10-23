@@ -225,7 +225,7 @@ done
    /usr/local/share/man/man1/Thunar.1
    /usr/local/share/metainfo/org.xfce.thunar.appdata.xml
    /usr/local/share/polkit-1/actions/org.xfce.thunar.policy
-   /usr/local/share/xfce4/panel/plugins/thunar-tpa.desktop=
+   /usr/local/share/xfce4/panel/plugins/thunar-tpa.desktop
 	
  
 	
