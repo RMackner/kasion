@@ -255,8 +255,6 @@ done
 	
 %{_datadir}/xfce4/panel/plugins/thunar-tpa.desktop
 	
-%{_metainfodir}/org.xfce.thunar.appdata.xml
-	
 %{_libdir}/xfce4/panel/plugins/libthunar-tpa.so
 	
 %{_libdir}/girepository-1.0/*.0.typelib
