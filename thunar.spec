@@ -135,7 +135,7 @@ Thunarx GTK documentation files for the Thunar file manager.
 	
 %build
 	
-%configure --enable-dbus
+./autogen.sh
 	
 # Remove rpaths
 	
