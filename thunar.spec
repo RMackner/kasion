@@ -201,14 +201,44 @@ done
 	
 %files
 	
+   /usr/lib/debug/usr/local/bin/thunar*
+   /usr/lib/debug/usr/local/lib/Thunar/*
+   /usr/lib/debug/usr/local/lib/libthunarx*
+   /usr/lib/debug/usr/local/lib/thunarx-3/*
+   /usr/lib/debug/usr/local/lib/xfce4/panel/plugins/*
+   /usr/local/bin/Thunar
+   /usr/local/bin/thunar
+   /usr/local/bin/thunar-settings
+   /usr/local/etc/xdg/Thunar/uca.xml
+   /usr/local/lib/Thunar/*
+   /usr/local/lib/girepository-1.0/*
+   /usr/local/lib/libthunarx-3.*
+   /usr/local/lib/systemd/user/thunar.service
+   /usr/local/lib/thunarx-3/*
+   /usr/local/lib/xfce4/panel/plugins/libthunar-tpa.so
+   /usr/local/share/Thunar/sendto/thunar-sendto-email.desktop
+   /usr/local/share/applications/thunar*
+   /usr/local/share/dbus-1/services/org.xfce.*
+   /usr/local/share/doc/thunar/README.gtkrc
+   /usr/local/share/icons/hicolor/*
+   /usr/local/share/locale/*
+   /usr/local/share/man/man1/Thunar.1
+   /usr/local/share/metainfo/org.xfce.thunar.appdata.xml
+   /usr/local/share/polkit-1/actions/org.xfce.thunar.policy
+   /usr/local/share/xfce4/panel/plugins/thunar-tpa.desktop=
+	
  
 	
 %files devel
 	
+%{_includedir}/thunarx-3/thunarx/*
 	
- 
+%{_libdir}/libthunarx-*
 	
-%files docs
+%{_libdir}/pkgconfig/thunarx-3.pc
+	
+%{_datadir}/gir-1.0/Thunarx-3.0.gir
+	
 	
 	
  
