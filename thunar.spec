@@ -174,14 +174,6 @@ chmod 644 examples/xfce-file-manager.py
  
 	
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
-	
- 
- 
-	
-# appdata
-	
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.appdata.xml
-	
  
 	
  
