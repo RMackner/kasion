@@ -231,13 +231,13 @@ done
 	
 %files devel
 	
-%{_includedir}/thunarx-3/thunarx/*
+/usr/local/include/thunarx-3/thunarx/*
 	
-%{_libdir}/libthunarx-*
+/usr/local/lib/libthunarx-3.*
 	
-%{_libdir}/pkgconfig/thunarx-3.pc
+/usr/local/lib/pkgconfig/thunarx-3.pc
 	
-%{_datadir}/gir-1.0/Thunarx-3.0.gir
+/usr/local/share/gir-1.0/Thunarx-3.0.gir
 	
 	
 	
