@@ -52,6 +52,8 @@ BuildRequires:  pkgconfig(libnotify) >= 0.4.0
 BuildRequires:  pkgconfig(libxfce4ui-2) >= %{xfceversion}
 	
 BuildRequires:  pkgconfig(libxfce4panel-2.0) >= %{xfceversion}
+
+BuildRequires:  xfce4-dev-tools
 	
 BuildRequires:  libSM-devel
 	
