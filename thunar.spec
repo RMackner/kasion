@@ -201,66 +201,6 @@ done
 	
 %files
 	
-%license COPYING
-	
-%doc ChangeLog NEWS INSTALL AUTHORS HACKING THANKS
-	
-%doc docs/README.gtkrc
-	
-# exclude docs that we have moved to the above
-	
-%exclude %{_datadir}/doc/thunar/README.gtkrc
-	
-%{_bindir}/Thunar
-	
-%{_bindir}/thunar
-	
-%{_bindir}/thunar-settings
-	
-%{_libdir}/libthunar*.so.*
-	
-%dir %{_libdir}/thunarx-*/
-	
-%{_libdir}/thunarx-*/thunar*.so
-	
-%dir %{_libdir}/Thunar/
-	
-%{_libdir}/Thunar/thunar-sendto-email
-	
-%dir %{_datadir}/Thunar/
-	
-%dir %{_datadir}/Thunar/sendto/
-	
-%{_datadir}/Thunar/sendto/*.desktop
-	
-%{_datadir}/polkit-1/actions/org.xfce.thunar.policy
-	
-%{_datadir}/applications/*.desktop
-	
-%{_datadir}/dbus-1/services/org.xfce.Thunar.FileManager1.service
-	
-%{_datadir}/dbus-1/services/org.xfce.FileManager.service
-	
-%{_datadir}/dbus-1/services/org.xfce.Thunar.service
-	
-%{_datadir}/icons/hicolor/*/*/*
-	
-%{_datadir}/xfce4/panel/plugins/thunar-tpa.desktop
-	
-%{_libdir}/xfce4/panel/plugins/libthunar-tpa.so
-	
-%{_libdir}/girepository-1.0/*.0.typelib
-	
-%{_mandir}/man1/Thunar.1*
-	
-%dir %{_sysconfdir}/xdg/Thunar
-	
-%config(noreplace) %{_sysconfdir}/xdg/Thunar/uca.xml
-	
-%{_userunitdir}/thunar.service
-
-/usr/share/locale/*
-	
  
 	
 %files devel
