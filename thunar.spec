@@ -1,19 +1,12 @@
 %global _hardened_build 1
 	
 %global xfceversion 4.17
-
-
-%define githash 274f43f939462d5d1991627214a6275b501b57a5
-
-%define shorthash %(c=%{githash}; echo ${c:0:10})
-
-%define version2 4.17.10
 	
  
 	
 Name:           Thunar
 	
-Version:        4.17.10.git.%{shorthash}
+Version:        4.17.10
 	
 Release:        %autorelease
 	
@@ -27,7 +20,7 @@ URL:            http://thunar.xfce.org/
 	
 #VCS git:git://git.xfce.org/xfce/thunar
 	
-Source0:        https://gitlab.xfce.org/xfce/thunar/-/archive/%{githash}/thunar-%{githash}.tar.gz
+Source0:        https://archive.xfce.org/src/xfce/thunar/%{xfceversion}/thunar-%{version}.tar.bz2
 	
  
 	
@@ -52,8 +45,6 @@ BuildRequires:  pkgconfig(libnotify) >= 0.4.0
 BuildRequires:  pkgconfig(libxfce4ui-2) >= %{xfceversion}
 	
 BuildRequires:  pkgconfig(libxfce4panel-2.0) >= %{xfceversion}
-
-BuildRequires:  xfce4-dev-tools
 	
 BuildRequires:  libSM-devel
 	
@@ -72,8 +63,6 @@ BuildRequires:  desktop-file-utils >= 0.7
 BuildRequires:  libappstream-glib
 	
 BuildRequires:  gobject-introspection-devel
-
-BuildRequires:  gtk-doc
 	
 Requires:       shared-mime-info
 	
@@ -85,7 +74,13 @@ Requires:       gvfs
 	
 Obsoletes:     thunar-vcs-plugin <= 0.2.0-24
 	
-
+ 
+	
+# Provide lowercase name to help people find the package. 
+	
+Provides:       thunar = %{version}-%{release}
+	
+ 
 	
 %description
 	
@@ -103,7 +98,7 @@ Thunar is fast and responsive with a good start up time and directory load time.
 	
 Summary: Development tools for Thunar file manager
 	
-Requires: %{name} = %{version2}-%{release}
+Requires: %{name} = %{version}-%{release}
 	
 Requires: pkgconfig
 	
@@ -121,7 +116,7 @@ libraries and header files for the Thunar file manager.
 	
 Summary: GTK docs for Thunar file manager
 	
-Requires: %{name} = %{version2}-%{release}
+Requires: %{name} = %{version}-%{release}
 	
  
 	
@@ -133,13 +128,13 @@ Thunarx GTK documentation files for the Thunar file manager.
 	
 %prep
 	
-%autosetup -n thunar-%{githash}
+%autosetup -n thunar-%{version}
 	
 
 	
 %build
 	
-./autogen.sh
+%configure --enable-dbus
 	
 # Remove rpaths
 	
@@ -157,6 +152,12 @@ export LD_LIBRARY_PATH="`pwd`/thunarx/.libs"
 %install
 	
 %make_install
+	
+	
+# fixes wrong library permissions
+	
+chmod 755 %{buildroot}/%{_libdir}/*.so
+	
  
 	
 make -C examples distclean
@@ -174,6 +175,14 @@ chmod 644 examples/xfce-file-manager.py
  
 	
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
+	
+ 
+ 
+	
+# appdata
+	
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.appdata.xml
+	
  
 	
  
@@ -201,37 +210,91 @@ done
 	
 %files
 	
-   /usr/lib/debug/usr/local/bin/thunar*
-   /usr/lib/debug/usr/local/lib/Thunar/*
-   /usr/lib/debug/usr/local/lib/libthunarx*
-   /usr/lib/debug/usr/local/lib/thunarx-3/*
-   /usr/lib/debug/usr/local/lib/xfce4/panel/plugins/*
-   /usr/local/bin/Thunar
-   /usr/local/bin/thunar
-   /usr/local/bin/thunar-settings
-   /usr/local/etc/xdg/Thunar/uca.xml
-   /usr/local/lib/Thunar/*
-   /usr/local/lib/girepository-1.0/*
-   /usr/local/lib/libthunarx-3.*
-   /usr/local/lib/systemd/user/thunar.service
-   /usr/local/lib/thunarx-3/*
-   /usr/local/lib/xfce4/panel/plugins/libthunar-tpa.so
-   /usr/local/share/Thunar/sendto/thunar-sendto-email.desktop
-   /usr/local/share/applications/thunar*
-   /usr/local/share/dbus-1/services/org.xfce.*
-   /usr/local/share/doc/thunar/README.gtkrc
-   /usr/local/share/icons/hicolor/*
-   /usr/local/share/locale/*
-   /usr/local/share/man/man1/Thunar.1
-   /usr/local/share/metainfo/org.xfce.thunar.appdata.xml
-   /usr/local/share/polkit-1/actions/org.xfce.thunar.policy
-   /usr/local/share/xfce4/panel/plugins/thunar-tpa.desktop
-   /usr/local/lib/libthunarx-3.*
-   /usr/local/include/thunarx-3/thunarx/*
-   /usr/local/lib/pkgconfig/thunarx-3.pc
-   /usr/local/share/gir-1.0/Thunarx-3.0.gir
+%license COPYING
 	
+%doc ChangeLog NEWS INSTALL AUTHORS HACKING THANKS
 	
+%doc docs/README.gtkrc
+	
+# exclude docs that we have moved to the above
+	
+%exclude %{_datadir}/doc/thunar/README.gtkrc
+	
+%{_bindir}/Thunar
+	
+%{_bindir}/thunar
+	
+%{_bindir}/thunar-settings
+	
+%{_libdir}/libthunar*.so.*
+	
+%dir %{_libdir}/thunarx-*/
+	
+%{_libdir}/thunarx-*/thunar*.so
+	
+%dir %{_libdir}/Thunar/
+	
+%{_libdir}/Thunar/thunar-sendto-email
+	
+%dir %{_datadir}/Thunar/
+	
+%dir %{_datadir}/Thunar/sendto/
+	
+%{_datadir}/Thunar/sendto/*.desktop
+	
+%{_datadir}/polkit-1/actions/org.xfce.thunar.policy
+	
+%{_datadir}/applications/*.desktop
+	
+%{_datadir}/dbus-1/services/org.xfce.Thunar.FileManager1.service
+	
+%{_datadir}/dbus-1/services/org.xfce.FileManager.service
+	
+%{_datadir}/dbus-1/services/org.xfce.Thunar.service
+	
+%{_datadir}/icons/hicolor/*/*/*
+	
+%{_datadir}/xfce4/panel/plugins/thunar-tpa.desktop
+	
+%{_metainfodir}/org.xfce.thunar.appdata.xml
+	
+%{_libdir}/xfce4/panel/plugins/libthunar-tpa.so
+	
+%{_libdir}/girepository-1.0/*.0.typelib
+	
+%{_mandir}/man1/Thunar.1*
+	
+%dir %{_sysconfdir}/xdg/Thunar
+	
+%config(noreplace) %{_sysconfdir}/xdg/Thunar/uca.xml
+	
+%{_userunitdir}/thunar.service
+
+/usr/share/locale/*
+	
+ 
+	
+%files devel
+	
+%doc examples
+	
+%{_includedir}/thunarx-*/
+	
+%{_libdir}/libthunar*.so
+	
+%{_libdir}/pkgconfig/thunarx-*.pc
+	
+%{_datadir}/gir-1.0/*.gir
+	
+ 
+	
+%files docs
+	
+%dir %{_datadir}/gtk-doc/html/thunarx
+	
+%{_datadir}/gtk-doc/html/thunarx/*
+
+/usr/share/gtk-doc/html/thunar/*
 	
  
 	
