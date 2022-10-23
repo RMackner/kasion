@@ -20,7 +20,7 @@ URL:            http://thunar.xfce.org/
 	
 #VCS git:git://git.xfce.org/xfce/thunar
 	
-Source0:        https://archive.xfce.org/src/xfce/thunar/%{xfceversion}/thunar-%{version}.tar.bz2
+Source0:        https://gitlab.xfce.org/xfce/thunar/-/archive/master/thunar-master.tar.gz
 	
  
 	
@@ -128,7 +128,7 @@ Thunarx GTK documentation files for the Thunar file manager.
 	
 %prep
 	
-%autosetup -n thunar-%{version}
+%autosetup -n thunar-master
 	
 
 	
