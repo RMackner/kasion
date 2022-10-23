@@ -72,6 +72,8 @@ BuildRequires:  desktop-file-utils >= 0.7
 BuildRequires:  libappstream-glib
 	
 BuildRequires:  gobject-introspection-devel
+
+BuildRequires:  gtk-doc
 	
 Requires:       shared-mime-info
 	
