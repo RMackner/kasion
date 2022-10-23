@@ -1,12 +1,19 @@
 %global _hardened_build 1
 	
 %global xfceversion 4.17
+
+
+%define githash 274f43f939462d5d1991627214a6275b501b57a5
+
+%define shorthash %(c=%{githash}; echo ${c:0:10})
+
+%define version2 4.17.10
 	
  
 	
 Name:           Thunar
 	
-Version:        4.17.10
+Version:        4.17.10.git.%{shorthash}
 	
 Release:        %autorelease
 	
@@ -20,7 +27,7 @@ URL:            http://thunar.xfce.org/
 	
 #VCS git:git://git.xfce.org/xfce/thunar
 	
-Source0:        https://gitlab.xfce.org/xfce/thunar/-/archive/master/thunar-master.tar.gz
+Source0:        https://gitlab.xfce.org/xfce/thunar/-/archive/%{githash}/thunar-%{githash}.tar.gz
 	
  
 	
@@ -74,13 +81,7 @@ Requires:       gvfs
 	
 Obsoletes:     thunar-vcs-plugin <= 0.2.0-24
 	
- 
-	
-# Provide lowercase name to help people find the package. 
-	
-Provides:       thunar = %{version}-%{release}
-	
- 
+
 	
 %description
 	
@@ -98,7 +99,7 @@ Thunar is fast and responsive with a good start up time and directory load time.
 	
 Summary: Development tools for Thunar file manager
 	
-Requires: %{name} = %{version}-%{release}
+Requires: %{name} = %{version2}-%{release}
 	
 Requires: pkgconfig
 	
@@ -116,7 +117,7 @@ libraries and header files for the Thunar file manager.
 	
 Summary: GTK docs for Thunar file manager
 	
-Requires: %{name} = %{version}-%{release}
+Requires: %{name} = %{version2}-%{release}
 	
  
 	
@@ -128,7 +129,7 @@ Thunarx GTK documentation files for the Thunar file manager.
 	
 %prep
 	
-%autosetup -n thunar-master
+%autosetup -n thunar-%{githash}
 	
 
 	
