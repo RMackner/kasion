@@ -205,25 +205,11 @@ done
 	
 %files devel
 	
-%doc examples
-	
-%{_includedir}/thunarx-*/
-	
-%{_libdir}/libthunar*.so
-	
-%{_libdir}/pkgconfig/thunarx-*.pc
-	
-%{_datadir}/gir-1.0/*.gir
 	
  
 	
 %files docs
 	
-%dir %{_datadir}/gtk-doc/html/thunarx
-	
-%{_datadir}/gtk-doc/html/thunarx/*
-
-/usr/share/gtk-doc/html/thunar/*
 	
  
 	
