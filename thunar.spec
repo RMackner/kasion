@@ -157,12 +157,6 @@ export LD_LIBRARY_PATH="`pwd`/thunarx/.libs"
 %install
 	
 %make_install
-	
-	
-# fixes wrong library permissions
-	
-chmod 755 %{buildroot}/%{_libdir}/*.so
-	
  
 	
 make -C examples distclean
