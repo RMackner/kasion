@@ -227,18 +227,9 @@ done
    /usr/local/share/polkit-1/actions/org.xfce.thunar.policy
    /usr/local/share/xfce4/panel/plugins/thunar-tpa.desktop
    /usr/local/lib/libthunarx-3.*
-	
- 
-	
-%files devel
-	
-/usr/local/include/thunarx-3/thunarx/*
-	
-/usr/local/lib/libthunarx-3.*
-	
-/usr/local/lib/pkgconfig/thunarx-3.pc
-	
-/usr/local/share/gir-1.0/Thunarx-3.0.gir
+   /usr/local/include/thunarx-3/thunarx/*
+   /usr/local/lib/pkgconfig/thunarx-3.pc
+   /usr/local/share/gir-1.0/Thunarx-3.0.gir
 	
 	
 	
